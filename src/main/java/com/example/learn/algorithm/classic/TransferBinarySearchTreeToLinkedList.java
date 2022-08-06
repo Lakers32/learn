@@ -1,6 +1,7 @@
 package com.example.learn.algorithm.classic;
 
-import edu.nuaa.cs.point.TransferBinarySearchTreeToDoubleLinkedList;
+
+import com.example.learn.algorithm.sword.TransferBinarySearchTreeToDoubleLinkedList;
 
 import java.util.Deque;
 import java.util.LinkedList;

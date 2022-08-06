@@ -16,13 +16,46 @@ import java.util.Arrays;
 public class CoinChange {
 
     /**
+     * 暴力搜索
+     */
+    int min = Integer.MAX_VALUE;
+
+    public int solution(int[] coins, int amount) {
+        if (coins.length == 0) {
+            return -1;
+        }
+
+        coinChange(coins, amount, 0);
+
+        // 如果没有任何一种硬币组合能组成总金额，返回 -1。
+        if (min == Integer.MAX_VALUE) {
+            return -1;
+        }
+        return min;
+    }
+
+    public void coinChange(int[] coins, int amount, int count) {
+        if (amount < 0) {
+            return;
+        }
+        if (amount == 0) {
+            min = Math.min(min, count);
+        }
+
+        for (int i = 0; i < coins.length; i++) {
+            coinChange(coins, amount - coins[i], count + 1);
+        }
+    }
+
+
+    /**
      * 记忆化搜索
      *
      * @param coins
      * @param amount
      * @return
      */
-    public int solution(int[] coins, int amount) {
+    public int solution2(int[] coins, int amount) {
         if (amount < 1) {
             return 0;
         }
@@ -60,7 +93,7 @@ public class CoinChange {
      * @param amount
      * @return
      */
-    public int solution2(int[] coins, int amount) {
+    public int solution3(int[] coins, int amount) {
         int max = amount + 1;
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, max);
