@@ -41,6 +41,7 @@ public class PermutationSequence {
             return;
         }
 
+        // 遍历选择列表
         for (int i = 0; i < nums.length; i++) {
             // 减枝：排除不合法的选择
             if (track.contains(nums[i])) {
