@@ -7,22 +7,18 @@ import java.util.Scanner;
  */
 public class HJ6 {
     public static void main(String[] args) {
-        Scanner str = new Scanner(System.in);
-        long num = str.nextLong();
-        String result = getResult(num);
-        System.out.println(result);
-    }
+        Scanner scanner = new Scanner(System.in);
 
-    public static String getResult(long num) {
-        int pum = 2;
-        String result = "";
-        while (num != 1) {
-            while (num % pum == 0) {
-                num = num / pum;
-                result = result + pum + " ";
+        long num = scanner.nextLong();
+        long k = (long) Math.sqrt(num);
+
+        for (long i = 2; i <= k; ++i) {
+            while (num % i == 0) {
+                System.out.print(i + " ");
+                num /= i;
             }
-            pum++;
         }
-        return result;
+
+        System.out.println(num == 1 ? "" : num + " ");
     }
 }
