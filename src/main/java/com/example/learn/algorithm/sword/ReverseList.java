@@ -47,6 +47,31 @@ public class ReverseList {
      * @return
      */
     public static ListNode solution2(ListNode head) {
+        // 当前节点指向头节点
+        ListNode current = head;
+        // 前置节点初始化为空，是为了头结点反转
+        ListNode pre = null;
+        while (current != null) {
+            // 保存下一个节点，以免反转之后，当前节点没法向前移动
+            ListNode next = current.next;
+            // 反转
+            current.next = pre;
+            // 移动
+            pre = current;
+            current = next;
+        }
+
+        return pre;
+    }
+
+    /**
+     * 遍历从尾到头逆转链表
+     * 将head作为current，减少变量
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode solution3(ListNode head) {
         // 前面或当前节点
         ListNode current = null;
         // 后面和暂存节点
