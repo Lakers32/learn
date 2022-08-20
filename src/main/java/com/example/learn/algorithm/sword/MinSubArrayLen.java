@@ -17,8 +17,11 @@ public class MinSubArrayLen {
         int ans = Integer.MAX_VALUE;
         int start = 0, end = 0;
         int sum = 0;
+
+        //  确定终止位置
         while (end < n) {
             sum += nums[end];
+            // 确定其实位置
             while (sum >= s) {
                 ans = Math.min(ans, end - start + 1);
                 sum -= nums[start];
