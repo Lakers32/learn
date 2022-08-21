@@ -25,7 +25,7 @@ public class ThreeSum {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length - 2; i++) {
             if (nums[i] > 0) {
                 return result;
             }
