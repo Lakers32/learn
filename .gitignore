@@ -1,0 +1,4 @@
+/target/classes/com/example/learn/*/*.class
+/.idea/libraries/*.xml
+
+
