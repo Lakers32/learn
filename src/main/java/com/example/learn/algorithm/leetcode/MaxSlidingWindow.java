@@ -15,9 +15,10 @@ import java.util.LinkedList;
 public class MaxSlidingWindow {
 
     /**
-     * 自定义单调队列
+     * 自定义单调递减队列
      */
     class MyQueue {
+        // 最多k个元素
         Deque<Integer> deque = new LinkedList<>();
 
         //弹出元素时，比较当前要弹出的数值是否等于队列出口的数值，如果相等则弹出
