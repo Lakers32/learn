@@ -94,6 +94,6 @@ public class LevelOrder {
         node2.right = node4;
 
         LevelOrder levelOrder = new LevelOrder();
-        System.out.println("PLevelOrder " + levelOrder.solution(root));
+        System.out.println("LevelOrder " + levelOrder.solution(root));
     }
 }
