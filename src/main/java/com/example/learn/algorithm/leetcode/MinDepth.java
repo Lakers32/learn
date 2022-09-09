@@ -68,6 +68,34 @@ public class MinDepth {
         return depth;
     }
 
+    /**
+     * 前序遍历
+     */
+    int result;
+    public int solution3(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        result = Integer.MIN_VALUE;
+        solution3(root, 1);
+        return result;
+    }
+
+    void solution3(TreeNode node, int depth) {
+        if (node.left == null && node.right == null) {
+            result = Math.min(depth, result);
+            return;
+        }
+
+        // 中 只不过中没有处理的逻辑
+        if (node.left == null) {
+            solution3(node.left, depth + 1);
+        }
+        if (node.right == null) {
+            solution3(node.right, depth + 1);
+        }
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(3);
         TreeNode node1 = new TreeNode(9);
