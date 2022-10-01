@@ -13,9 +13,6 @@ import java.util.Map;
  **/
 public class BuildTreeWithInAndPost {
 
-    /**
-     * 方便根据数值查找位置
-     */
     Map<Integer, Integer> map;
 
     public TreeNode solution(int[] inorder, int[] postorder) {
