@@ -18,6 +18,9 @@ import java.util.Stack;
 public class IsValidBST {
 
 
+    /**
+     * 前一个节点，记录最大值
+     */
     TreeNode max;
 
     /**
