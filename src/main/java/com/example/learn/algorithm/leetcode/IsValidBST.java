@@ -24,7 +24,7 @@ public class IsValidBST {
     TreeNode max;
 
     /**
-     * 递归 + 双指针
+     * 中序递归 + 双指针
      *
      * @param root
      * @return
