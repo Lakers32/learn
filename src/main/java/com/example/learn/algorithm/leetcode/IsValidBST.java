@@ -40,7 +40,7 @@ public class IsValidBST {
             return false;
         }
 
-        // 中
+        // 中，大于前一个值
         if (max != null && root.val <= max.val) {
             return false;
         }
