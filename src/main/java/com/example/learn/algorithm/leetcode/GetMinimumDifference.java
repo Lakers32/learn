@@ -19,6 +19,7 @@ public class GetMinimumDifference {
     int result = Integer.MAX_VALUE;
 
     /**
+     * 不同节点的最小差值，就是相连两点的最小差值
      * 又是二叉搜索树，所以中序遍历。找相邻节点，所以双指针
      *
      * @param root
