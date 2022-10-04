@@ -77,4 +77,20 @@ public class GetMinimumDifference {
 
         return result;
     }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        TreeNode node1 = new TreeNode(9);
+        TreeNode node2 = new TreeNode(9);
+        TreeNode node3 = new TreeNode(15);
+        TreeNode node4 = new TreeNode(15);
+
+        root.left = node1;
+        root.right = node2;
+        node2.left = node3;
+        node2.right = node4;
+
+        GetMinimumDifference getMinimumDifference = new GetMinimumDifference();
+        System.out.println("Get Minimum Difference Is " + getMinimumDifference.solution(root));
+    }
 }
