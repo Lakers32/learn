@@ -25,9 +25,10 @@ public class HelloController {
     public String access() {
         //尝试获取令牌
         if (accessLimitService.tryAcquire()) {
+            System.out.println("before aceess [" + sdf.format(new Date()) + "]");
             //模拟业务执行500毫秒
             try {
-                Thread.sleep(500);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
