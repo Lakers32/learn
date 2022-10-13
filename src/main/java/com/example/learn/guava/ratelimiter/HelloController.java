@@ -1,12 +1,15 @@
 package com.example.learn.guava.ratelimiter;
 
+import com.google.common.util.concurrent.RateLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @description:
@@ -16,25 +19,24 @@ import java.util.Date;
 @Controller
 public class HelloController {
 
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    @Autowired
-    private AccessLimitService accessLimitService;
+    /**
+     * 限流策略 ： 限制每秒最多1个请求
+     */
+    private final RateLimiter limiter = RateLimiter.create(1.0);
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @RequestMapping("/access")
     @ResponseBody
-    public String access() {
-        //尝试获取令牌
-        if (accessLimitService.tryAcquire()) {
-            System.out.println("before aceess [" + sdf.format(new Date()) + "]");
-            //模拟业务执行500毫秒
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    public String access() throws InterruptedException {
+
+        while (true) {
+            //500毫秒内，没拿到令牌，就直接进入服务降级
+            while (!limiter.tryAcquire(500, TimeUnit.MILLISECONDS)) {
+                System.out.println("sleep");
+                Thread.sleep(500);
             }
-            return "aceess success [" + sdf.format(new Date()) + "]";
-        } else {
-            return "aceess limit [" + sdf.format(new Date()) + "]";
+            System.out.println("send to es");
         }
+
     }
 }
