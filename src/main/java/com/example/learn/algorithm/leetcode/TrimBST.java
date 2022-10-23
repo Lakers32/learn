@@ -44,6 +44,6 @@ public class TrimBST {
 
         TrimBST trimBST = new TrimBST();
         int low = 9, high = 15;
-        System.out.println("Delete Node " + trimBST.solution(root, low, high));
+        System.out.println("TrimBST " + trimBST.solution(root, low, high));
     }
 }
