@@ -72,7 +72,9 @@ public class SortedArrayToBST {
      * @return
      */
     public TreeNode sortedArrayToBST(int[] nums) {
-        if (nums.length == 0) return null;
+        if (nums.length == 0) {
+            return null;
+        }
 
         //根节点初始化
         TreeNode root = new TreeNode(-1);
